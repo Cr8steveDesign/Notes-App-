@@ -1,0 +1,53 @@
+.editor-container {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100vw;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.97);
+  z-index: 15;
+
+  color: white;
+  padding: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: Fade 1s ease-in-out forwards;
+
+  input,
+  textarea {
+    width: 100%;
+    padding: 0.7rem;
+    margin-bottom: 15px;
+    font-family: Montserrat;
+  }
+
+  input[type="button"] {
+    background-color: blue;
+    color: white;
+    font-weight: 600;
+    border: none;
+    padding: 0.8rem;
+    transition: all 0.5s ease-in-out;
+
+    &:last-of-type {
+      background-color: red;
+    }
+
+    &:hover {
+      background-color: darken(blue, 30%);
+    }
+  }
+  small {
+    font-size: 7px;
+  }
+}
+
+@keyframes Fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

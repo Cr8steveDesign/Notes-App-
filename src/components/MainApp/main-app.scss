@@ -1,0 +1,52 @@
+.mainapp {
+  width: 100%;
+  overflow-x: hidden;
+  margin-bottom: 100px;
+
+  &-footer {
+    background-color: darkgrey;
+    padding: 1.2rem 2.7rem 1.2rem 2.7rem;
+    position: fixed;
+    width: 100vw;
+    left: 0px;
+    text-align: center;
+    bottom: 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 30px;
+
+    &-icons {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    &-createbtn {
+      width: 80px;
+      height: 80px;
+      background-color: blue;
+      box-shadow: 0px 0px 15px rgba($color: #000000, $alpha: 0.3);
+      border-radius: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transform: translateY(-50px);
+      font-size: 2.2rem;
+      transition: all 0.4s ease-in-out;
+    }
+    &-createbtn:active {
+      transform: scale(0.5);
+    }
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    padding: 1rem;
+    background-color: bisque;
+    border-radius: 20px;
+  }
+}
