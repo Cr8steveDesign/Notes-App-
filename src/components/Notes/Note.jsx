@@ -9,6 +9,7 @@ const Note = (props) => {
 
   const handleDelete = (e) => {
     setAllNotes((prev) => prev.filter((note) => note.id !== +e.target.id));
+    localStorage.setItem("allNotes", JSON.stringify(allNotes));
   };
 
   return (

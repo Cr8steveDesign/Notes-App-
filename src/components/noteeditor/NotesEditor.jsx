@@ -1,6 +1,6 @@
 import "./noteseditor.scss";
 import { NotesContext } from "../contexts/NotesContext";
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 
 const NotesEditor = (props) => {
   const { setAllNotes } = useContext(NotesContext);
@@ -11,16 +11,21 @@ const NotesEditor = (props) => {
     setTextFields((prev) => {
       return {
         ...prev,
-        [e.target.name]: e.target.value,
-        dateCreated: new Date().toDateString(),
-        id: Math.random(),
+        [e.target.name]: `${e.target.value}`,
+        dateCreated:
+          new Date().toLocaleTimeString() + " || " + new Date().toDateString(),
+        id: Math.random() * 100,
       };
     });
   };
 
   const handleSubmit = () => {
-    setAllNotes((prev) => [...prev, textFields]);
-
+    try {
+      if (textFields.title.length < 1) return;
+      setAllNotes((prev) => [...prev, textFields]);
+    } catch (error) {
+      console.log("Sorry, there was an error: Likely an empty field");
+    }
     props.handleEditState();
   };
 
@@ -29,7 +34,14 @@ const NotesEditor = (props) => {
       <div>
         <label htmlFor="title">
           Title:
-          <input type="text" name="title" id="title" onChange={handleChange} />
+          <input
+            type="text"
+            name="title"
+            id="title"
+            onChange={handleChange}
+            maxLength={32}
+            required
+          />
         </label>
         <label htmlFor="content">
           {" "}
@@ -40,6 +52,7 @@ const NotesEditor = (props) => {
             cols="40"
             rows="10"
             onChange={handleChange}
+            required
           ></textarea>
         </label>
         <input type="button" value="Submit" onClick={handleSubmit} />

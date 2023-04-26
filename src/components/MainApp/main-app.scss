@@ -1,7 +1,9 @@
 .mainapp {
   width: 100%;
+  min-height: 100vh;
   overflow-x: hidden;
-  margin-bottom: 100px;
+  // margin-bottom: 100px;
+  padding: 1.5rem;
 
   &-footer {
     background-color: darkgrey;
@@ -35,6 +37,7 @@
       transform: translateY(-50px);
       font-size: 2.2rem;
       transition: all 0.4s ease-in-out;
+      cursor: pointer;
     }
     &-createbtn:active {
       transform: scale(0.5);
@@ -48,5 +51,28 @@
     padding: 1rem;
     background-color: bisque;
     border-radius: 20px;
+    align-items: center;
+    color: lighten(#000000, 10%);
+
+    #search {
+      border: 0;
+      background-color: transparent;
+      font-size: 1rem;
+      padding: 6px;
+
+      &:hover {
+        border: 0;
+        outline: 0;
+      }
+    }
+    &-toggle-display {
+      cursor: pointer;
+    }
   }
+}
+
+.notes-holder {
+  display: flex;
+  flex-direction: column-reverse;
+  margin-bottom: 100px;
 }
